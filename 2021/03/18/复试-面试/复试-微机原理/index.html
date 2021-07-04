@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="8086通用寄存器AX，BX，CX，DX称作为数据寄存器：AX (Accumulator)：累加寄存器，也称之为累加器； AX 寄存器可以分为两个独立的 8 位的 AH 和 AL 寄存器； BX (Base)：基地址寄存器； CX (Count)：计数器寄存器； DX (Data)：数据寄存器； SP和BP又称作为指针寄存器：SP (Stack Pointer)：堆栈指针寄存器； BP (Base">
+<meta property="og:type" content="article">
+<meta property="og:title" content="复试-微机原理">
+<meta property="og:url" content="http://example.com/2021/03/18/%E5%A4%8D%E8%AF%95-%E9%9D%A2%E8%AF%95/%E5%A4%8D%E8%AF%95-%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="8086通用寄存器AX，BX，CX，DX称作为数据寄存器：AX (Accumulator)：累加寄存器，也称之为累加器； AX 寄存器可以分为两个独立的 8 位的 AH 和 AL 寄存器； BX (Base)：基地址寄存器； CX (Count)：计数器寄存器； DX (Data)：数据寄存器； SP和BP又称作为指针寄存器：SP (Stack Pointer)：堆栈指针寄存器； BP (Base">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-18T14:35:12.000Z">
+<meta property="article:modified_time" content="2021-07-04T12:00:02.949Z">
+<meta property="article:author" content="浩浩">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/03/18/%E5%A4%8D%E8%AF%95-%E9%9D%A2%E8%AF%95/%E5%A4%8D%E8%AF%95-%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>复试-微机原理 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/18/%E5%A4%8D%E8%AF%95-%E9%9D%A2%E8%AF%95/%E5%A4%8D%E8%AF%95-%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="浩浩">
+      <meta itemprop="description" content="在有生的瞬间能遇到你，竟花光所有运气">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          复试-微机原理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-18 22:35:12" itemprop="dateCreated datePublished" datetime="2021-03-18T22:35:12+08:00">2021-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-04 20:00:02" itemprop="dateModified" datetime="2021-07-04T20:00:02+08:00">2021-07-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%A2%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">面试</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="8086"><a href="#8086" class="headerlink" title="8086"></a>8086</h2><h4 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h4><h5 id="AX，BX，CX，DX称作为数据寄存器："><a href="#AX，BX，CX，DX称作为数据寄存器：" class="headerlink" title="AX，BX，CX，DX称作为数据寄存器："></a>AX，BX，CX，DX称作为数据寄存器：</h5><p>AX (Accumulator)：累加寄存器，也称之为累加器；</p>
+<p>AX 寄存器可以分为两个独立的 8 位的 AH 和 AL 寄存器；</p>
+<p>BX (Base)：基地址寄存器；</p>
+<p>CX (Count)：计数器寄存器；</p>
+<p>DX (Data)：数据寄存器；</p>
+<h5 id="SP和BP又称作为指针寄存器："><a href="#SP和BP又称作为指针寄存器：" class="headerlink" title="SP和BP又称作为指针寄存器："></a>SP和BP又称作为指针寄存器：</h5><p>SP (Stack Pointer)：堆栈指针寄存器；</p>
+<p>BP (Base Pointer)：基指针寄存器；</p>
+<h5 id="SI和DI又称作为变址寄存器："><a href="#SI和DI又称作为变址寄存器：" class="headerlink" title="SI和DI又称作为变址寄存器："></a>SI和DI又称作为变址寄存器：</h5><p>SI (Source Index)：源变址寄存器；</p>
+<p>DI (Destination Index)：目的变址寄存器；</p>
+<h5 id="控制寄存器："><a href="#控制寄存器：" class="headerlink" title="控制寄存器："></a>控制寄存器：</h5><p>IP (Instruction Pointer)：指令指针寄存器；</p>
+<p>FLAG：标志寄存器；</p>
+<h5 id="段寄存器："><a href="#段寄存器：" class="headerlink" title="段寄存器："></a>段寄存器：</h5><p>CS (Code Segment)：代码段寄存器；</p>
+<p>DS (Data Segment)：数据段寄存器；</p>
+<p>SS (Stack Segment)：堆栈段寄存器；</p>
+<p>ES (Extra Segment)：附加段寄存器；</p>
+<h2 id="8255"><a href="#8255" class="headerlink" title="8255"></a>8255</h2><p>8255有三个端口：A口，B口和C口。它们的长度都是8位的。都可以用作数据的输入或输出。</p>
+<p>8255有三种工作方式来管理输入输出：方式0、方式1和方式2.</p>
+<p>方式0的基本定义如下：2个8位的端口和2个4位的端口。都可以作为输入或输出。输出可以被锁存。输入不能锁存。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/18/%E5%A4%8D%E8%AF%95-%E9%9D%A2%E8%AF%95/%E5%A4%8D%E8%AF%95-%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="prev" title="复试-数据库">
+      <i class="fa fa-chevron-left"></i> 复试-数据库
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/18/%E8%80%83%E7%A0%94%E6%9C%BA%E8%AF%95/2015/2015-1-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/" rel="next" title="2015-1-等差数列">
+      2015-1-等差数列 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#8086"><span class="nav-number">1.</span> <span class="nav-text">8086</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通用寄存器"><span class="nav-number">1.0.1.</span> <span class="nav-text">通用寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AX，BX，CX，DX称作为数据寄存器："><span class="nav-number">1.0.1.1.</span> <span class="nav-text">AX，BX，CX，DX称作为数据寄存器：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SP和BP又称作为指针寄存器："><span class="nav-number">1.0.1.2.</span> <span class="nav-text">SP和BP又称作为指针寄存器：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SI和DI又称作为变址寄存器："><span class="nav-number">1.0.1.3.</span> <span class="nav-text">SI和DI又称作为变址寄存器：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#控制寄存器："><span class="nav-number">1.0.1.4.</span> <span class="nav-text">控制寄存器：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#段寄存器："><span class="nav-number">1.0.1.5.</span> <span class="nav-text">段寄存器：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8255"><span class="nav-number">2.</span> <span class="nav-text">8255</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">浩浩</p>
+  <div class="site-description" itemprop="description">在有生的瞬间能遇到你，竟花光所有运气</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">浩浩</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
