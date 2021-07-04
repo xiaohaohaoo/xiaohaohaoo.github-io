@@ -157,6 +157,76 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/04/%E5%91%A8%E4%BC%9A%E8%AE%BA%E6%96%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="浩浩">
+      <meta itemprop="description" content="在有生的瞬间能遇到你，竟花光所有运气">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/04/%E5%91%A8%E4%BC%9A%E8%AE%BA%E6%96%87/" class="post-title-link" itemprop="url">周会论文</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-07-04 20:52:25 / 修改时间：20:53:47" itemprop="dateCreated datePublished" datetime="2021-07-04T20:52:25+08:00">2021-07-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Goal-Oriented-Gaze-Estimation-for-Zero-Shot-Learning"><a href="#Goal-Oriented-Gaze-Estimation-for-Zero-Shot-Learning" class="headerlink" title="Goal-Oriented Gaze Estimation for Zero-Shot Learning"></a>Goal-Oriented Gaze Estimation for Zero-Shot Learning</h2><p><img src="/.com//blog\blog\source\_posts\周会论文\image-20210702094426753.png" alt="image-20210702094426753"></p>
+<h5 id="本文提出了一个人类注意力估计模块，去捕捉可区分性的语义信息来帮助属性区域的定位。结合这些局部信息以及目标的全局信息，模型可以更好的识别不可见类别。结合这些局部信息以及目标的全局信息，模型可以更好的识别不可见类别。分为全局视觉特征、人类注意力机制模块、零样本学习。"><a href="#本文提出了一个人类注意力估计模块，去捕捉可区分性的语义信息来帮助属性区域的定位。结合这些局部信息以及目标的全局信息，模型可以更好的识别不可见类别。结合这些局部信息以及目标的全局信息，模型可以更好的识别不可见类别。分为全局视觉特征、人类注意力机制模块、零样本学习。" class="headerlink" title="本文提出了一个人类注意力估计模块，去捕捉可区分性的语义信息来帮助属性区域的定位。结合这些局部信息以及目标的全局信息，模型可以更好的识别不可见类别。结合这些局部信息以及目标的全局信息，模型可以更好的识别不可见类别。分为全局视觉特征、人类注意力机制模块、零样本学习。"></a>本文提出了一个人类注意力估计模块，去捕捉可区分性的语义信息来帮助属性区域的定位。结合这些局部信息以及目标的全局信息，模型可以更好的识别不可见类别。结合这些局部信息以及目标的全局信息，模型可以更好的识别不可见类别。分为全局视觉特征、人类注意力机制模块、零样本学习。</h5><h3 id="全局视觉特征"><a href="#全局视觉特征" class="headerlink" title="全局视觉特征"></a>全局视觉特征</h3><h5 id="模型使用ResNet101提取图片的全局视觉特征，通过余弦相似度构建视觉特征和语义特征之间的映射关系。"><a href="#模型使用ResNet101提取图片的全局视觉特征，通过余弦相似度构建视觉特征和语义特征之间的映射关系。" class="headerlink" title="模型使用ResNet101提取图片的全局视觉特征，通过余弦相似度构建视觉特征和语义特征之间的映射关系。"></a>模型使用ResNet101提取图片的全局视觉特征，通过余弦相似度构建视觉特征和语义特征之间的映射关系。</h5><p><img src="/.com//blog\blog\source\_posts\周会论文\image-20210702095919129.png" alt="image-20210702095919129"></p>
+<p><img src="/.com//blog\blog\source\_posts\周会论文\image-20210702100242747.png" alt="image-20210702100242747"></p>
+<p>其中h(x)为图像信息的H、W全局平均池化后的结果。V为线性层将视觉特征h(x)映射到语义空间。σ 是一个缩放因子。</p>
+<h3 id="人类注意力机制模块"><a href="#人类注意力机制模块" class="headerlink" title="人类注意力机制模块"></a>人类注意力机制模块</h3><p><img src="/.com//blog\blog\source\_posts\周会论文\image-20210702100506003.png" alt="image-20210702100506003"></p>
+<h4 id="注意力模块"><a href="#注意力模块" class="headerlink" title="注意力模块"></a>注意力模块</h4><h5 id="词向量query、和重塑后的key矩阵乘后映射到-0-1-区间。最后得到局部化属性信息A-x-。对于局部属性化信息我们期望它集中而不是散落。我们使用Distance-Loss对其进行约束属性信息。"><a href="#词向量query、和重塑后的key矩阵乘后映射到-0-1-区间。最后得到局部化属性信息A-x-。对于局部属性化信息我们期望它集中而不是散落。我们使用Distance-Loss对其进行约束属性信息。" class="headerlink" title="词向量query、和重塑后的key矩阵乘后映射到(0,1)区间。最后得到局部化属性信息A(x)。对于局部属性化信息我们期望它集中而不是散落。我们使用Distance Loss对其进行约束属性信息。"></a>词向量query、和重塑后的key矩阵乘后映射到(0,1)区间。最后得到局部化属性信息A(x)。对于局部属性化信息我们期望它集中而不是散落。我们使用Distance Loss对其进行约束属性信息。</h5><p><img src="/.com//blog\blog\source\_posts\周会论文\image-20210702104027954.png" alt="image-20210702104027954"></p>
+<h5 id="通过此函数能够学习更集中的属性信息。"><a href="#通过此函数能够学习更集中的属性信息。" class="headerlink" title="通过此函数能够学习更集中的属性信息。"></a>通过此函数能够学习更集中的属性信息。</h5><h4 id="属性定位"><a href="#属性定位" class="headerlink" title="属性定位"></a>属性定位</h4><h5 id="对A-x-上的H、W进行全局最大池化生成a-x-及预测属性相应值的位置，并且通过真实的属性监督，以均方差来优化a-x-。"><a href="#对A-x-上的H、W进行全局最大池化生成a-x-及预测属性相应值的位置，并且通过真实的属性监督，以均方差来优化a-x-。" class="headerlink" title="对A(x)上的H、W进行全局最大池化生成a(x),及预测属性相应值的位置，并且通过真实的属性监督，以均方差来优化a(x)。"></a>对A(x)上的H、W进行全局最大池化生成a(x),及预测属性相应值的位置，并且通过真实的属性监督，以均方差来优化a(x)。</h5><p><img src="/.com//blog\blog\source\_posts\周会论文\image-20210702104938552.png" alt="image-20210702104938552"></p>
+<h4 id="注意力转移"><a href="#注意力转移" class="headerlink" title="注意力转移"></a>注意力转移</h4><h5 id="为了获取更加真实的人眼识别的局部属性，设计转移模块将属性特征图A-x-通过1×1的Conv和一个sigmoid函数来实现转换为注视热图g-x-通过真实的人类注视热图G-x-实现监督学习。、"><a href="#为了获取更加真实的人眼识别的局部属性，设计转移模块将属性特征图A-x-通过1×1的Conv和一个sigmoid函数来实现转换为注视热图g-x-通过真实的人类注视热图G-x-实现监督学习。、" class="headerlink" title="为了获取更加真实的人眼识别的局部属性，设计转移模块将属性特征图A(x)通过1×1的Conv和一个sigmoid函数来实现转换为注视热图g(x),通过真实的人类注视热图G(x)实现监督学习。、"></a>为了获取更加真实的人眼识别的局部属性，设计转移模块将属性特征图A(x)通过1×1的Conv和一个sigmoid函数来实现转换为注视热图g(x),通过真实的人类注视热图G(x)实现监督学习。、</h5><h5 id="优化：使用匈牙利算法对g-x-和G-x-进行匹配，其中对被匹配到的图进行标注。使用所有像素的二叉损失熵作为损失函数。"><a href="#优化：使用匈牙利算法对g-x-和G-x-进行匹配，其中对被匹配到的图进行标注。使用所有像素的二叉损失熵作为损失函数。" class="headerlink" title="优化：使用匈牙利算法对g(x)和G(x)进行匹配，其中对被匹配到的图进行标注。使用所有像素的二叉损失熵作为损失函数。"></a>优化：使用匈牙利算法对g(x)和G(x)进行匹配，其中对被匹配到的图进行标注。使用所有像素的二叉损失熵作为损失函数。</h5><p><img src="/.com//blog\blog\source\_posts\周会论文\image-20210702112147625.png" alt="image-20210702112147625"></p>
+<p><img src="/.com//blog\blog\source\_posts\周会论文\image-20210702111937729.png" alt="image-20210702111937729"></p>
+<h4 id="最后，整个模型的整体的损失为如下定义："><a href="#最后，整个模型的整体的损失为如下定义：" class="headerlink" title="最后，整个模型的整体的损失为如下定义："></a>最后，整个模型的整体的损失为如下定义：</h4><p><img src="/.com//blog\blog\source\_posts\周会论文\image-20210702111959881.png" alt="image-20210702111959881"></p>
+<h3 id="零样本识别"><a href="#零样本识别" class="headerlink" title="零样本识别"></a>零样本识别</h3><h5 id="在整个模型训练之后，使用训练后的余弦度量空间进行零样本识别。分类器通过此进行分类"><a href="#在整个模型训练之后，使用训练后的余弦度量空间进行零样本识别。分类器通过此进行分类" class="headerlink" title="在整个模型训练之后，使用训练后的余弦度量空间进行零样本识别。分类器通过此进行分类"></a>在整个模型训练之后，使用训练后的余弦度量空间进行零样本识别。分类器通过此进行分类</h5><p><img src="/.com//blog\blog\source\_posts\周会论文\image-20210702152609920.png" alt="image-20210702152609920"></p>
+<h5 id="对于广义零样本，训练时使用了可见类，测试结果存在偏差，现在使用一calibrated-stacking技术缓解此问题。"><a href="#对于广义零样本，训练时使用了可见类，测试结果存在偏差，现在使用一calibrated-stacking技术缓解此问题。" class="headerlink" title="对于广义零样本，训练时使用了可见类，测试结果存在偏差，现在使用一calibrated stacking技术缓解此问题。"></a>对于广义零样本，训练时使用了可见类，测试结果存在偏差，现在使用一calibrated stacking技术缓解此问题。</h5><p><img src="/.com//blog\blog\source\_posts\周会论文\image-20210702152628191.png" alt="image-20210702152628191"></p>
+<h6 id="其中校准系数γ，在可见类时为1，不可见类时为0。"><a href="#其中校准系数γ，在可见类时为1，不可见类时为0。" class="headerlink" title="其中校准系数γ，在可见类时为1，不可见类时为0。"></a>其中校准系数γ，在可见类时为1，不可见类时为0。</h6><h5 id="最后感觉和局部注意力机制很相近。"><a href="#最后感觉和局部注意力机制很相近。" class="headerlink" title="最后感觉和局部注意力机制很相近。"></a>最后感觉和局部注意力机制很相近。</h5>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/04/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -799,86 +869,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/21/%E8%80%83%E7%A0%94%E6%9C%BA%E8%AF%95/2017/2017-1-%E4%B8%AD%E4%BD%8D%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="浩浩">
-      <meta itemprop="description" content="在有生的瞬间能遇到你，竟花光所有运气">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/21/%E8%80%83%E7%A0%94%E6%9C%BA%E8%AF%95/2017/2017-1-%E4%B8%AD%E4%BD%8D%E6%95%B0/" class="post-title-link" itemprop="url">2017-1-中位数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-21 10:51:52" itemprop="dateCreated datePublished" datetime="2021-03-21T10:51:52+08:00">2021-03-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-04 20:00:02" itemprop="dateModified" datetime="2021-07-04T20:00:02+08:00">2021-07-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%BA%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">机试</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="输入要求："><a href="#输入要求：" class="headerlink" title="输入要求："></a>输入要求：</h4><pre><code>输入整数序列
-</code></pre><h4 id="输出要求"><a href="#输出要求" class="headerlink" title="输出要求"></a>输出要求</h4><pre><code>输出大于他的整数和小于他的整数的数量相同的数
-</code></pre><p>测试数据：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">2 6 5 6 3 5</span><br><span class="line">4</span><br><span class="line">3 4 6 7</span><br></pre></td></tr></table></figure>
-<p>输出结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)&#123;</span><br><span class="line">		<span class="keyword">int</span> *arr = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		sort(arr,arr+n);</span><br><span class="line">		<span class="keyword">int</span> mid  = arr[n/<span class="number">2</span>];</span><br><span class="line">		<span class="keyword">int</span> low = lower_bound(arr,arr+n,mid) - arr; <span class="comment">//大于等于的第一个数的下标 == 小于它的个数 </span></span><br><span class="line">		<span class="keyword">int</span> high = upper_bound(arr,arr+n,mid) - arr; <span class="comment">//大于的第一个数的下标 </span></span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;low&lt;&lt;<span class="string">" "</span>&lt;&lt;high&lt;&lt;<span class="built_in">endl</span>; </span><br><span class="line">		<span class="keyword">if</span>(n - high == low)</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt; mid&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt; <span class="number">-1</span> &lt;&lt;<span class="built_in">endl</span>; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -948,7 +938,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
