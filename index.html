@@ -157,6 +157,82 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/20/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/node2vec/node2vec/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="浩浩">
+      <meta itemprop="description" content="在有生的瞬间能遇到你，竟花光所有运气">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="浩浩的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/20/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/node2vec/node2vec/" class="post-title-link" itemprop="url">node2vec</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-07-20 15:27:49 / 修改时间：17:16:25" itemprop="dateCreated datePublished" datetime="2021-07-20T15:27:49+08:00">2021-07-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">图神经网络</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="node2vec-Scalable-Feature-Learning-for-Networks"><a href="#node2vec-Scalable-Feature-Learning-for-Networks" class="headerlink" title="node2vec: Scalable Feature Learning for Networks"></a>node2vec: Scalable Feature Learning for Networks</h2><h4 id="对于图像的搜索，我们具有BFS和DFS两种，其中BFS能够很好的展现中心特征，而DFS能过够尽可能的突出远距关系，nodo2vec结合两种搜索方式对deepwalk进行了扩展。"><a href="#对于图像的搜索，我们具有BFS和DFS两种，其中BFS能够很好的展现中心特征，而DFS能过够尽可能的突出远距关系，nodo2vec结合两种搜索方式对deepwalk进行了扩展。" class="headerlink" title="对于图像的搜索，我们具有BFS和DFS两种，其中BFS能够很好的展现中心特征，而DFS能过够尽可能的突出远距关系，nodo2vec结合两种搜索方式对deepwalk进行了扩展。"></a>对于图像的搜索，我们具有BFS和DFS两种，其中BFS能够很好的展现中心特征，而DFS能过够尽可能的突出远距关系，nodo2vec结合两种搜索方式对deepwalk进行了扩展。</h4><p><img src="https://img-blog.csdnimg.cn/20210720153316173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjEwMDIzMg==,size_16,color_FFFFFF,t_70" alt="img"></p>
+<h4 id="Deepwalk通过所以游走的方式对节点进行采样，对于当前节点u，f-u-作为u的嵌入空间，Ns-u-为u通过采样策略s得到的临近顶点序列。"><a href="#Deepwalk通过所以游走的方式对节点进行采样，对于当前节点u，f-u-作为u的嵌入空间，Ns-u-为u通过采样策略s得到的临近顶点序列。" class="headerlink" title="Deepwalk通过所以游走的方式对节点进行采样，对于当前节点u，f(u)作为u的嵌入空间，Ns(u)为u通过采样策略s得到的临近顶点序列。"></a>Deepwalk通过所以游走的方式对节点进行采样，对于当前节点u，f(u)作为u的嵌入空间，Ns(u)为u通过采样策略s得到的临近顶点序列。</h4><h2 id="优化目标"><a href="#优化目标" class="headerlink" title="优化目标"></a>优化目标</h2><h4 id="在给定f的条件下，使得网络中邻居出现的概率最大，是node2vec的任务。"><a href="#在给定f的条件下，使得网络中邻居出现的概率最大，是node2vec的任务。" class="headerlink" title="在给定f的条件下，使得网络中邻居出现的概率最大，是node2vec的任务。"></a>在给定f的条件下，使得网络中邻居出现的概率最大，是node2vec的任务。</h4><p><img src="https://img-blog.csdnimg.cn/20210720160734742.png" alt="img"></p>
+<h4 id="于此，本文提出两个假设，一是条件独立；二是特征空间具有对称性。"><a href="#于此，本文提出两个假设，一是条件独立；二是特征空间具有对称性。" class="headerlink" title="于此，本文提出两个假设，一是条件独立；二是特征空间具有对称性。"></a>于此，本文提出两个假设，一是条件独立；二是特征空间具有对称性。</h4><h3 id="条件独立"><a href="#条件独立" class="headerlink" title="条件独立"></a>条件独立</h3><h4 id="邻域节点出现的可能性独立于源节点的特征表示和其他邻域节点。"><a href="#邻域节点出现的可能性独立于源节点的特征表示和其他邻域节点。" class="headerlink" title="邻域节点出现的可能性独立于源节点的特征表示和其他邻域节点。"></a>邻域节点出现的可能性独立于源节点的特征表示和其他邻域节点。</h4><p><img src="https://img-blog.csdnimg.cn/20210720161656130.png" alt="img"></p>
+<h3 id="特征空间对称性"><a href="#特征空间对称性" class="headerlink" title="特征空间对称性"></a>特征空间对称性</h3><h4 id="及某个节点在作为源点和作为邻域结点时共同使用一个嵌入空间。"><a href="#及某个节点在作为源点和作为邻域结点时共同使用一个嵌入空间。" class="headerlink" title="及某个节点在作为源点和作为邻域结点时共同使用一个嵌入空间。"></a>及某个节点在作为源点和作为邻域结点时共同使用一个嵌入空间。</h4><h4 id="由此，我们可以将邻接点出现的概率表示为："><a href="#由此，我们可以将邻接点出现的概率表示为：" class="headerlink" title="由此，我们可以将邻接点出现的概率表示为："></a>由此，我们可以将邻接点出现的概率表示为：</h4><p><img src="https://img-blog.csdnimg.cn/20210720161753702.png" alt="img"></p>
+<h3 id="综上三个式子我们可以得到最终的目标函数："><a href="#综上三个式子我们可以得到最终的目标函数：" class="headerlink" title="综上三个式子我们可以得到最终的目标函数："></a>综上三个式子我们可以得到最终的目标函数：</h3><p><img src="https://img-blog.csdnimg.cn/20210720162143469.png" alt="img"></p>
+<h4 id="其中，由于网络结构大，采用了负样本优化-样本优化方法，后续学了在更-。"><a href="#其中，由于网络结构大，采用了负样本优化-样本优化方法，后续学了在更-。" class="headerlink" title="其中，由于网络结构大，采用了负样本优化(样本优化方法，后续学了在更)。"></a>其中<img src="https://img-blog.csdnimg.cn/20210720162347169.png" alt="img">，由于网络结构大，采用了负样本优化(样本优化方法，后续学了在更)。</h4><h2 id="顶点序列采样"><a href="#顶点序列采样" class="headerlink" title="顶点序列采样"></a>顶点序列采样</h2><h4 id="node2vec依然采用随机游走的方式获取顶点的近邻序列，不同的是node2vec采用的是一种有偏的随机游走。（前面的博客介绍了一点deepwalk）"><a href="#node2vec依然采用随机游走的方式获取顶点的近邻序列，不同的是node2vec采用的是一种有偏的随机游走。（前面的博客介绍了一点deepwalk）" class="headerlink" title="node2vec依然采用随机游走的方式获取顶点的近邻序列，不同的是node2vec采用的是一种有偏的随机游走。（前面的博客介绍了一点deepwalk）"></a>node2vec依然采用随机游走的方式获取顶点的近邻序列，不同的是node2vec采用的是一种有偏的随机游走。（前面的博客介绍了一点deepwalk）</h4><p> <img src="https://img-blog.csdnimg.cn/20210720164103403.png" alt="img"></p>
+<h4 id="其中v为当前节点，x为下一节点。-p为v–x之间的概率。"><a href="#其中v为当前节点，x为下一节点。-p为v–x之间的概率。" class="headerlink" title="其中v为当前节点，x为下一节点。 p为v–x之间的概率。"></a>其中v为当前节点，x为下一节点。 p为v–x之间的概率。</h4><h4 id="此外，其中害引入了超参数q、p来对随机游走策略进行约束，假设当前随机游走经过边-t-v-到达顶点v-有两者之间的转移概率-未归一化-a×w-w为两者间的权重"><a href="#此外，其中害引入了超参数q、p来对随机游走策略进行约束，假设当前随机游走经过边-t-v-到达顶点v-有两者之间的转移概率-未归一化-a×w-w为两者间的权重" class="headerlink" title="此外，其中害引入了超参数q、p来对随机游走策略进行约束，假设当前随机游走经过边(t,v) 到达顶点v,有两者之间的转移概率(未归一化) = a×w(w为两者间的权重)"></a>此外，其中害引入了超参数q、p来对随机游走策略进行约束，假设当前随机游走经过边(t,v) 到达顶点v,有两者之间的转移概率(未归一化) = a×w(w为两者间的权重)</h4><p> <img src="https://img-blog.csdnimg.cn/20210720165620658.png" alt="img"></p>
+<h5 id="dtx-是顶点t到x之间的最短路径"><a href="#dtx-是顶点t到x之间的最短路径" class="headerlink" title="dtx 是顶点t到x之间的最短路径"></a>dtx 是顶点t到x之间的最短路径</h5><h5 id="p来控制刚刚访问之后的节点"><a href="#p来控制刚刚访问之后的节点" class="headerlink" title="p来控制刚刚访问之后的节点"></a>p来控制刚刚访问之后的节点</h5><h5 id="q控制游走的方向是BFS还是DFS。q-gt-1，游走偏向BFS；q-lt-1-游走偏向DFS"><a href="#q控制游走的方向是BFS还是DFS。q-gt-1，游走偏向BFS；q-lt-1-游走偏向DFS" class="headerlink" title="q控制游走的方向是BFS还是DFS。q&gt;1，游走偏向BFS；q&lt;1,游走偏向DFS"></a>q控制游走的方向是BFS还是DFS。q&gt;1，游走偏向BFS；q&lt;1,游走偏向DFS</h5><p> <img src="https://img-blog.csdnimg.cn/20210720165710108.png" alt="img"></p>
+<h4 id="有了邻接点序列后，后面使用Alias算法进行顶点采样。"><a href="#有了邻接点序列后，后面使用Alias算法进行顶点采样。" class="headerlink" title="有了邻接点序列后，后面使用Alias算法进行顶点采样。"></a>有了邻接点序列后，后面使用Alias算法进行顶点采样。</h4><p><img src="https://img-blog.csdnimg.cn/20210720170820111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjEwMDIzMg==,size_16,color_FFFFFF,t_70" alt="img"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/19/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/DeepWalk/DeepWalk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -233,7 +309,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/04/%E5%91%A8%E4%BC%9A%E8%AE%BA%E6%96%87/%E5%91%A8%E4%BC%9A%E8%AE%BA%E6%96%87/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/04/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/%E4%BA%BA%E7%9C%BC%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/%E4%BA%BA%E7%9C%BC%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -247,7 +323,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/07/04/%E5%91%A8%E4%BC%9A%E8%AE%BA%E6%96%87/%E5%91%A8%E4%BC%9A%E8%AE%BA%E6%96%87/" class="post-title-link" itemprop="url">人眼的注意力机制</a>
+            <a href="/2021/07/04/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/%E4%BA%BA%E7%9C%BC%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/%E4%BA%BA%E7%9C%BC%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">人眼的注意力机制</a>
         </h2>
 
         <div class="post-meta">
@@ -797,86 +873,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/21/%E8%80%83%E7%A0%94%E6%9C%BA%E8%AF%95/2017/2017-3-%E4%B8%8A%E7%8F%AD%E6%97%B6%E9%95%BF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="浩浩">
-      <meta itemprop="description" content="在有生的瞬间能遇到你，竟花光所有运气">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="浩浩的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/21/%E8%80%83%E7%A0%94%E6%9C%BA%E8%AF%95/2017/2017-3-%E4%B8%8A%E7%8F%AD%E6%97%B6%E9%95%BF/" class="post-title-link" itemprop="url">2017-3-上班时长</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-21 10:54:28" itemprop="dateCreated datePublished" datetime="2021-03-21T10:54:28+08:00">2021-03-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-04 20:00:02" itemprop="dateModified" datetime="2021-07-04T20:00:02+08:00">2021-07-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%BA%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">机试</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="输入要求："><a href="#输入要求：" class="headerlink" title="输入要求："></a>输入要求：</h4><pre><code>每人偶数次的打卡次数
-</code></pre><h4 id="输出要求"><a href="#输出要求" class="headerlink" title="输出要求"></a>输出要求</h4><pre><code>每人上班时常 min
-</code></pre><p>测试数据：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">小明 8:00 12:00</span><br><span class="line">小红 8:00 11:00</span><br><span class="line">小明 14:00 18:00</span><br></pre></td></tr></table></figure>
-<p>输出结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">小明 480</span><br><span class="line">小红 180</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt; mmap;</span><br><span class="line">	<span class="built_in">string</span> name,first,second;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;name&gt;&gt;first&gt;&gt;second)&#123;</span><br><span class="line">		 <span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;::iterator iter;</span><br><span class="line">		 <span class="comment">//cout&lt;&lt;name&lt;&lt;" "&lt;&lt;first&lt;&lt;" "&lt;&lt;second&lt;&lt;endl;</span></span><br><span class="line">		 iter = mmap.<span class="built_in">find</span>(name);</span><br><span class="line">		<span class="keyword">if</span>(iter == mmap.<span class="built_in">end</span>())&#123;</span><br><span class="line">			<span class="keyword">int</span> two =stoi(second.substr(<span class="number">0</span>,second.<span class="built_in">find</span>(<span class="string">":"</span>)));</span><br><span class="line">			<span class="keyword">int</span> one =stoi(first.substr(<span class="number">0</span>,first.<span class="built_in">find</span>(<span class="string">":"</span>)));</span><br><span class="line">			<span class="keyword">int</span> time = two - one;</span><br><span class="line">			<span class="comment">//cout&lt;&lt;two&lt;&lt;" "&lt;&lt;one&lt;&lt;endl;</span></span><br><span class="line">			mmap.insert(pair&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;(name,time));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">int</span> two =stoi(second.substr(<span class="number">0</span>,second.<span class="built_in">find</span>(<span class="string">":"</span>)));</span><br><span class="line">			<span class="keyword">int</span> one =stoi(first.substr(<span class="number">0</span>,first.<span class="built_in">find</span>(<span class="string">":"</span>)));</span><br><span class="line">			<span class="keyword">int</span> time = two - one;</span><br><span class="line">			mmap[name] = iter-&gt;second + time;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">auto</span> it = mmap.<span class="built_in">begin</span>();</span><br><span class="line">	<span class="keyword">while</span>(it != mmap.<span class="built_in">end</span>())&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt; it-&gt;first&lt;&lt;<span class="string">"  "</span>&lt;&lt;it-&gt;second*<span class="number">60</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		it++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -946,7 +942,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
